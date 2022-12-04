@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cards {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        --spacing: 15px;
+        --columns: 4;
+        margin-left: calc(var(--spacing) * (-1));
+        margin-right: calc(var(--spacing) * (-1));
+      }
+      @media screen and (min-width: 768px) {
+      }
+
+      .card {
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+        --widthBox: 25%;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        width: calc(var(--widthBox) - var(--spacing) * 2);
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      @media screen and (min-width: 768px) {
+        .card {
+          --widthBox: 33.33%;
+        }
+      }
+
+      .card-image {
+        height: 200px;
+        width: 100%;
+        flex-shrink: 0;
+        object-fit: cover;
+      }
+      .card-content {
+        padding: 25px;
+      }
+      .card-title {
+        font-weight: 500;
+        margin-bottom: 25px;
+        word-break: break-all;
+        /* giới hạn dòng text-truncate*/
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+      }
+      .card-user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 100rem;
+        object-fit: cover;
+        /*flex-shirk  cố định kích thước khi có width height k và không bị scale lại */
+        flex-shrink: 0;
+      }
+      .card-user-info {
+        /* flex 1 để chiếm tất cả các khoảng trống còn lại  */
+        padding-left: 20px;
+        flex: 1;
+      }
+      .card-user-top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2px;
+      }
+      .card-user-name {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1;
+      }
+      .card-user-game {
+        color: #999;
+        font-weight: 300;
+        font-size: 13px;
+      }
+      .card-user-top ion-icon {
+        color: #20e3b2;
+        margin-left: 5px;
+      }
+      .card-user,
+      .card-bottom {
+        margin-top: auto;
+        flex-shrink: 0;
+      }
+      .card-top {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .card-bottom {
+        padding-top: 25px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* đẩy hết khoảng trống lên phía trên dồn xuống phía dưới */
+        margin-top: auto;
+      }
+      .card-live {
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 5px 15px;
+        border-radius: 10px;
+        background-color: #ff6651;
+      }
+      .card-live span {
+        margin-left: 10px;
+      }
+      .card-watching {
+        font-size: 13px;
+        color: #999;
+        font-weight: 300;
+      }
+      .card-content {
+        background-color: #ff000070;
+        /* vì ở hình đã chiếm cố định với height 200
+        => dùng flex 1 là chiếm luôn những phần còn lại */
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <div class="card">
+        <img
+          src="https://icdn.dantri.com.vn/thumb_w/680/2022/09/01/minh-4-1662031357078.jpeg"
+          class="card-image"
+          alt=""
+        />
+        <div class="card-content">
+          <div class="card-top">
+            <h3 class="card-title">
+              2020 World cup Champs Gaming Warzone 2020 World cup Champs Gaming
+              Warzone2020 World cup Champs Gaming Warzone2020 World cup
+              ChampsChampsChampsChampsChampsChampsChampsChampsChampsChampsChampsChampsChampsChamps
+              Gaming Warzone
+            </h3>
+            <div class="card-user">
+              <img
+                src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=645"
+                alt=""
+                class="card-user-avatar"
+              />
+              <div class="card-user-info">
+                <div class="card-user-top">
+                  <h4 class="card-user-name">Tam Tran</h4>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
+                <div class="card-user-game">Call of duty</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="card-live">
+              <ion-icon name="wifi"></ion-icon>
+              <span>Live</span>
+            </div>
+            <div class="card-watching">4.2k watching</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://icdn.dantri.com.vn/thumb_w/680/2022/09/01/minh-4-1662031357078.jpeg"
+          class="card-image"
+          alt=""
+        />
+        <div class="card-content">
+          <div class="card-top">
+            <h3 class="card-title">
+              2020 World cup Champs Gaming Warzone 2020
+            </h3>
+            <div class="card-user">
+              <img
+                src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=645"
+                alt=""
+                class="card-user-avatar"
+              />
+              <div class="card-user-info">
+                <div class="card-user-top">
+                  <h4 class="card-user-name">Tam Tran</h4>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
+                <div class="card-user-game">Call of duty</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="card-live">
+              <ion-icon name="wifi"></ion-icon>
+              <span>Live</span>
+            </div>
+            <div class="card-watching">4.2k watching</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://icdn.dantri.com.vn/thumb_w/680/2022/09/01/minh-4-1662031357078.jpeg"
+          class="card-image"
+          alt=""
+        />
+        <div class="card-content">
+          <div class="card-top">
+            <h3 class="card-title">
+              2020 World cup Champs Gaming Warzone 2020 World cup Champs Gaming
+            </h3>
+            <div class="card-user">
+              <img
+                src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=645"
+                alt=""
+                class="card-user-avatar"
+              />
+              <div class="card-user-info">
+                <div class="card-user-top">
+                  <h4 class="card-user-name">Tam Tran</h4>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
+                <div class="card-user-game">Call of duty</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="card-live">
+              <ion-icon name="wifi"></ion-icon>
+              <span>Live</span>
+            </div>
+            <div class="card-watching">4.2k watching</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://icdn.dantri.com.vn/thumb_w/680/2022/09/01/minh-4-1662031357078.jpeg"
+          class="card-image"
+          alt=""
+        />
+        <div class="card-content">
+          <div class="card-top">
+            <h3 class="card-title">
+              2020 World cup Champs Gaming Warzone 2020 World cup Champs Gaming
+            </h3>
+            <div class="card-user">
+              <img
+                src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=645"
+                alt=""
+                class="card-user-avatar"
+              />
+              <div class="card-user-info">
+                <div class="card-user-top">
+                  <h4 class="card-user-name">Tam Tran</h4>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
+                <div class="card-user-game">Call of duty</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <div class="card-live">
+              <ion-icon name="wifi"></ion-icon>
+              <span>Live</span>
+            </div>
+            <div class="card-watching">4.2k watching</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <scripts
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></scripts>
+  </body>
+</html>
